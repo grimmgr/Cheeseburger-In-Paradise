@@ -12,7 +12,6 @@ $(function() {
       type: 'POST',
       data: newBurger
     }).then(() => {
-        console.log('created new burger');
         // Reload the page to get the updated list
         location.reload();
       }
@@ -21,16 +20,19 @@ $(function() {
 
   $('.eat-burger').on('click', function(event) {
     const id = $(this).data('id');
-    console.log(id);
+
+    const updatedBurger = {
+      eaten: true
+    };
 
     $.ajax(`/api/burgers/${id}`, {
       type: 'PUT',
-      data: { eaten: true }
+      data: updatedBurger
     }).then(() => {
-        // Reload the page to get the updated list
-        // location.reload();
-      }
-    );
-  })
+      // Reload the page to get the updated list
+      location.reload();
+    }
+  );
+  });
 
 })

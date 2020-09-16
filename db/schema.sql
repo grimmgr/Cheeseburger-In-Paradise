@@ -12,9 +12,6 @@ CREATE TABLE burgers (
 	PRIMARY KEY (id)
 );
 
-INSERT INTO burgers (description) VALUES ('cheeseburger');
-INSERT INTO burgers (description) VALUES ('veggie burg');
-INSERT INTO burgers (description, eaten) VALUES ('hamburger', true);
 
 UPDATE burgers SET eaten = 1 WHERE id = 5;
 SELECT * FROM burgers;

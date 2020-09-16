@@ -40,6 +40,8 @@ const orm = {
     update(table, colValObj, condition, cb) {
         db.query(`UPDATE ${table} SET ${objToSql(colValObj)} WHERE ${condition}`, (err, res) => {
             if (err) throw err;
+
+            cb(res);
         });
     }
 };
