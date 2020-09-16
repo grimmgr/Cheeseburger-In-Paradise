@@ -9,7 +9,7 @@ const orm = {
         });
     },
     create(table, col, val, cb) {
-        db.query(`INSERT INTO ${table} ( ${col.toString()} ) VALUES ( ${val} )`,
+        db.query(`INSERT INTO ${table} (${col.toString()}) VALUES (?)`, val,
         (err, res) => {
             if (err) throw err;
 

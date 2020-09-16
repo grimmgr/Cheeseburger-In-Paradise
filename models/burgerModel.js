@@ -4,7 +4,7 @@ const burger = {
     all(cb) {
         orm.selectAll('burgers', res => cb(res));
     },
-    create(cb) {
+    create(col, val, cb) {
         orm.create('burgers', col, val, res => cb(res));
     }
 };
