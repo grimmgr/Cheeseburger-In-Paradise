@@ -6,6 +6,9 @@ const burger = {
     },
     create(col, val, cb) {
         orm.create('burgers', col, val, res => cb(res));
+    },
+    update(colValObj, condition, cb) {
+        orm.update('burgers', colValObj, condition, res => cb(res));
     }
 };
 
