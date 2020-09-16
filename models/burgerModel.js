@@ -9,6 +9,9 @@ const burger = {
     },
     update(colValObj, condition, cb) {
         orm.update('burgers', colValObj, condition, res => cb(res));
+    },
+    delete(condition, cb) {
+        orm.delete('burgers', condition, res => cb(res));
     }
 };
 

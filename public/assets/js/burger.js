@@ -25,14 +25,28 @@ $(function() {
       eaten: true
     };
 
+    $('.eat-burger').css('display', 'none');
+    $('.delete-burger').css('display', 'block');
+
     $.ajax(`/api/burgers/${id}`, {
       type: 'PUT',
       data: updatedBurger
     }).then(() => {
       // Reload the page to get the updated list
       location.reload();
-    }
-  );
+      }
+    );
   });
+
+  $('.delete-burger').on('click', function(event) {
+    const id = $(this).data('id');
+    console.log(id);
+
+    $.ajax(`/api/burgers/${id}`, {
+      type: 'DELETE'
+    }).then(() => {
+      location.reload();
+    })
+  })
 
 })

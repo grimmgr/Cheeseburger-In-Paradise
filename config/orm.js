@@ -43,6 +43,13 @@ const orm = {
 
             cb(res);
         });
+    },
+    delete(table, condition, cb) {
+        db.query(`DELETE FROM ${table} WHERE ${condition}`, (err, res) => {
+            if (err) throw err;
+
+            cb(res);
+        })
     }
 };
 
