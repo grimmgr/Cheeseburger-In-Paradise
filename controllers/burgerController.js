@@ -4,26 +4,23 @@ const router = express.Router();
 
 const burger = require('../models/burgerModel.js');
 
+// get all entries from 'burgers' table of database and render
 router.get('/', (req, res) => {
     burger.all(result => {
         res.render('index', { burgers: result });
     })
 });
 
+// create new row in 'burgers' table
 router.post('/api/burgers', (req, res) => {
-    burger.create('description', req.body.description, (result) => {
-        console.log({id: result.insertId});
-        // res.json({id: data.insertId});
+    burger.create('description', req.body.description, () => {
+        res.end();
     })
-    
-    res.end();
 });
 
+// update row in 'burgers' table
 router.put('/api/burgers/:id', (req, res) => {
     const condition = `id=${req.params.id}`;
-
-    console.log(`request body: ${JSON.stringify(req.body)}`);
-    console.log(req.body.eaten);
 
     burger.update({eaten: req.body.eaten}, condition, result => {
         if (result.changedRows === 0) {
@@ -34,6 +31,7 @@ router.put('/api/burgers/:id', (req, res) => {
     });
 });
 
+// delete row in table
 router.delete('/api/burgers/:id', (req, res) => {
     const condition = `id=${req.params.id}`;
 

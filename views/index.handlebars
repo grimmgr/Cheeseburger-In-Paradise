@@ -1,32 +1,41 @@
-<h1>Cheeseburger In Paradise</h1>
+<div class='header'>
+  <img class='header-img' src='/assets/images/burger.PNG'/>
 
-<h2>Maybe I'll have a ...</h2>
+  <h1>Cheeseburger In Paradise</h1>
+</div>
 
-<ul>
-  {{#each burgers}}
-    {{#unless eaten}}
-      {{> burgers/burger-block eaten=false}}
-    {{/unless}}
-  {{/each}}
-</ul>
+<div class='form'>
+  <form class='create-form'>
 
-<h2>Yummm, that sure was delish...</h2>
+    <div class='form-group'>
+      <label for='burger'>Place an order:</label>
+      <input type='text' id='burger' name='name'>
+    </div>
 
-<ul>
-  {{#each burgers}}
-    {{#if eaten}}
-      {{> burgers/burger-block eaten=true}}
-    {{/if}}
-  {{/each}}
-</ul>
+    <button class='submit' type='submit'>Submit</button>
+  </form>
+</div>
 
-<h2>Add a Burger</h2>
-<form class="create-form">
+<div class='to-eat'>
+  <h2>Order Up!</h2>
 
-  <div class="form-group">
-    <label for="burger">Burger Description:</label>
-    <input type="text" id="burger" name="name">
-  </div>
+  <ul>
+    {{#each burgers}}
+      {{#unless eaten}}
+        {{> burgers/burger-block eaten=false}}
+      {{/unless}}
+    {{/each}}
+  </ul>
+</div>
 
-  <button type="submit">Add Burger</button>
-</form>
+<div class='eaten'>
+  <h2>Hall of Fame</h2>
+
+  <ul>
+    {{#each burgers}}
+      {{#if eaten}}
+        {{> burgers/burger-block eaten=true}}
+      {{/if}}
+    {{/each}}
+  </ul>
+</div>
