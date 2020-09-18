@@ -13,8 +13,8 @@ router.get('/', (req, res) => {
 
 // create new row in 'burgers' table
 router.post('/api/burgers', (req, res) => {
-    burger.create('description', req.body.description, () => {
-        res.end();
+    burger.create('description', req.body.description, (result) => {
+        res.json(result);
     })
 });
 
