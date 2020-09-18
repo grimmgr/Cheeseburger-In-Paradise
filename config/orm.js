@@ -24,7 +24,9 @@ const orm = {
     // query datablase for all entries of a table
     selectAll(table, cb) {
         db.query('SELECT * FROM ??', table, (err, res) => {
-            if (err) throw err;
+            if (err) {
+                throw err
+            };
 
             cb(res);
         });
