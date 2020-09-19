@@ -23,9 +23,9 @@ function objToSql(ob) {
 const orm = {
     // query datablase for all entries of a table
     selectAll(table, cb) {
-        db.query('SELECT * FROM ??', {table}, (err, res) => {
+        db.query(`SELECT * FROM ${table}`, (err, res) => {
             if (err) {
-                throw err
+                throw err;
             };
 
             cb(res);
