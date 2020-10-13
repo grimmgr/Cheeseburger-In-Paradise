@@ -3,7 +3,7 @@ const compression = require('compression');
 const PORT = process.env.PORT || 8080;
 
 const app = express();
-app.use(compression());
+
 // Serve static content for the app from the 'public' directory in the application directory.
 app.use(express.static('public'));
 
@@ -21,7 +21,7 @@ app.set('view engine', 'handlebars');
 const routes = require('./controllers/burgerController.js');
 
 app.use(routes);
-
+app.use(compression());
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {
   // Log (server-side) when our server has started
