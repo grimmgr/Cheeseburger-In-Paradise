@@ -1,6 +1,6 @@
 # Cheeseburger-In-Paradise
 
-Yummo... users can dream up any kind of burger, eat it when they want, and track their favorites.
+MVC app with REST api built with express and mysql.
 
 <https://infinite-plains-28150.herokuapp.com/>
 
